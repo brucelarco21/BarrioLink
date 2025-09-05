@@ -1,0 +1,18 @@
+{% extends 'vecinos/base.html' %}
+
+{% block title %}Noticias{% endblock %}
+
+{% block content %}
+<h2>Noticias</h2>
+<ul class="list-group">
+    {% for noticia in noticias %}
+        <li class="list-group-item">
+            <h5>{{ noticia.titulo }}</h5>
+            <p>{{ noticia.contenido }}</p>
+            <small>{{ noticia.fecha|date:"d M Y" }}</small>
+        </li>
+    {% empty %}
+        <li class="list-group-item">No hay noticias disponibles.</li>
+    {% endfor %}
+</ul>
+{% endblock %}
